@@ -1,61 +1,54 @@
 (function () {
-  function buildModal() {
-    const modal = document.createElement('div')
-    modal.className = 'video-modal hidden'
-    modal.innerHTML = `
-			<div class="video-modal__content" role="dialog" aria-modal="true">
-				<button class="video-modal__close" aria-label="Close">×</button>
-				<iframe class="video-modal__iframe" src="" allow="autoplay fullscreen" allowfullscreen></iframe>
-			</div>
-		`
-    document.body.appendChild(modal)
-    return modal
+  let backdrop = null
+  let body = null
+
+  function buildBackdrop(bgColor = 'rgba(0,0,0,0.85)') {    
+    backdrop = document.createElement('div')
+    backdrop.className = `modal hidden`
+    backdrop.style = `background: ${bgColor};`
+    backdrop.innerHTML = `
+      <div class="modal__content" role="dialog" aria-modal="true">
+        <div class="modal__body"></div>
+      </div>
+    `
+    document.body.appendChild(backdrop)
+    body = backdrop.querySelector('.modal__body')
+    setupBackdropListeners()
   }
 
-  const modal = buildModal()
-  const iframe = modal.querySelector('.video-modal__iframe')
-  const closeBtn = modal.querySelector('.video-modal__close')
+  function setupBackdropListeners() {
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) closeBackdrop()
+    })
 
-  function openModal(videoId) {
-    if (!videoId) return
-    const src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0`
-    iframe.src = src
-    modal.classList.remove('hidden')
-    document.body.style.overflow = 'hidden'
-    // focus close button for accessibility
-    closeBtn.focus()
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !backdrop.classList.contains('hidden')) closeBackdrop()
+    })
   }
 
-  function closeModal() {
-    modal.classList.add('hidden')
-    // stop video
-    iframe.src = ''
-    document.body.style.overflow = ''
-  }
-
-  // Close when clicking the backdrop (but not when clicking the content)
-  modal.addEventListener('click', function (e) {
-    if (e.target === modal) closeModal()
-  })
-
-  closeBtn.addEventListener('click', closeModal)
-
-  // Close on ESC
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal()
-  })
-
-  // Delegate clicks on elements with `.video-thumb` and `data-video-id`
-  document.addEventListener('click', function (e) {
-    const el = e.target.closest && e.target.closest('.video-thumb')
-    if (!el) return
-    const id = el.getAttribute('data-video-id')
-    if (id) {
-      openModal(id)
+  function openBackdrop(content, onOpen, bgColor) {
+    if (!backdrop) buildBackdrop(bgColor)
+    
+    if (content) {
+      body.innerHTML = ''
+      if (typeof content === 'string') {
+        body.innerHTML = content
+      } else {
+        body.appendChild(content)
+      }
     }
-  })
+    backdrop.classList.remove('hidden')
+    document.body.style.overflow = 'hidden'
+    if (onOpen) onOpen()
+  }
 
-  // Expose helper on window for programmatic use
-  window.openYouTubeModal = openModal
-  window.closeYouTubeModal = closeModal
+  function closeBackdrop(onClose) {
+    backdrop.classList.add('hidden')
+    body.innerHTML = ''
+    document.body.style.overflow = ''
+    if (onClose) onClose()
+  }
+
+  window.openBackdrop = openBackdrop
+  window.closeBackdrop = closeBackdrop
 })()
