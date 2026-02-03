@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Isolation_Mode" data-name="Isolation Mode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 279.92 4.74">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 16.19;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #bd202f;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 4.74px;
+      }
+    </style>
+  </defs>
+  <line class="cls-2" x1="2.37" y1="2.37" x2="2.37" y2="2.37"/>
+  <line class="cls-1" x1="18.56" y1="2.37" x2="269.46" y2="2.37"/>
+  <line class="cls-2" x1="277.55" y1="2.37" x2="277.55" y2="2.37"/>
+</svg>

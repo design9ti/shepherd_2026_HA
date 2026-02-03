@@ -4,7 +4,7 @@
 
   function buildBackdrop(bgColor = 'rgba(0,0,0,0.85)') {    
     backdrop = document.createElement('div')
-    backdrop.className = `modal hidden`
+    backdrop.className = `modal`
     backdrop.style = `background: ${bgColor};`
     backdrop.innerHTML = `
       <div class="modal__content" role="dialog" aria-modal="true">
@@ -22,7 +22,7 @@
     })
 
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !backdrop.classList.contains('hidden')) closeBackdrop()
+      if (e.key === 'Escape' && backdrop && backdrop.parentNode) closeBackdrop()
     })
   }
 
@@ -37,14 +37,16 @@
         body.appendChild(content)
       }
     }
-    backdrop.classList.remove('hidden')
     document.body.style.overflow = 'hidden'
     if (onOpen) onOpen()
   }
 
   function closeBackdrop(onClose) {
-    backdrop.classList.add('hidden')
-    body.innerHTML = ''
+    if (backdrop && backdrop.parentNode) {
+      backdrop.remove()
+      backdrop = null
+      body = null
+    }
     document.body.style.overflow = ''
     if (onClose) onClose()
   }

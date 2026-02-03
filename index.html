@@ -3,51 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HA project</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="./assets/css/main.css">
-  <link rel="stylesheet" href="./assets/css/modal.css">
+  <title>Document</title>
 </head>
-<body class="homepage">
-  <div id="banner-1" class="home-banner">
-  </div>
-  <div id="banner-2" class="home-banner">
-  </div>
-  <div id="banner-3" class="h-[80vh] flex justify-center items-center bg-[#e9d1b9]">
-    <div class="max-w-4xl mx-auto grid grid-cols-2 gap-20">
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_1.png" alt="video 1"
-        onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_2.png" alt="video 1"
-        onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_3.png" alt="video 1"
-        onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_4.png" alt="video 1"
-        onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-    </div>
-  </div>
-
-  <script src="./assets/js/popup.js"></script>
-  <script src="./assets/js/main.js"></script>
+<body>
   <script>
-    function createYouTubeCallback(videoId) {
-      if (!videoId) return
-      const container = document.createElement('div')
-      container.style.width = '100%'
-      container.style.height = '100%'
-
-      const iframe = document.createElement('iframe')
-      iframe.className = 'video-modal__iframe'
-      iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0`
-      iframe.setAttribute('allow', 'autoplay; fullscreen')
-      iframe.setAttribute('allowfullscreen', 'true')
-      iframe.style.width = '100%'
-      iframe.style.height = '60vh'
-      iframe.style.border = 'none'
-
-      container.appendChild(iframe)
-      return container
-    }
+    window.location.href = '/en'
   </script>
 </body>
-
 </html>

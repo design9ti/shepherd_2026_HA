@@ -1,25 +1,31 @@
+function getLocale() {
+  const pathSegments = window.location.pathname.split('/').filter(segment => segment !== '')
+  const firstSegment = pathSegments[0]
+  return firstSegment || 'zh'
+}
+
 function renderHeader() {
   const body = document.querySelector('body')
   body.insertAdjacentHTML('afterbegin', `
     <nav class="sticky top-0">
       <div class="flex justify-between nav-inner absolute w-full px-2.5">
-        <a class="inline-flex">
-          <img class="w-[380px]" src="./assets/images/icon/home-logo.svg"/>
+        <a class="inline-flex" href="/">
+          <img class="w-[380px]" src="/assets/images/icon/home-logo.svg"/>
         </a>
         <div class="flex items-start justify-center menu gap-[15px]">
           <a href="https://www.facebook.com/housingwellbeinghk" target="_blank">
-            <img class="facebook" src="./assets/images/icon/facebook.svg" />
+            <img class="facebook" src="/assets/images/icon/facebook.svg" />
           </a>
           <a href="https://www.instagram.com/housingwellbeing.hk/" target="_blank">
-            <img class="ig" src="./assets/images/icon/ig.svg" />
+            <img class="ig" src="/assets/images/icon/ig.svg" />
           </a>
           <a href="mailto:hello@housingwellbeing.hk">
-            <img class="email" src="./assets/images/icon/email.svg"  />
+            <img class="email" src="/assets/images/icon/email.svg"  />
           </a>
           <a
             onclick="renderBackdropMenu()"
             class="menu_trigger homepage"
-          ><img class="menu" src="./assets/images/icon/menu_trigger.svg" /></a>
+          ><img class="menu" src="/assets/images/icon/menu_trigger.svg" /></a>
         </div>
       </div>
     </nav>
@@ -27,9 +33,19 @@ function renderHeader() {
 }
 
 function renderOtherHeader() {
+  const locale = getLocale()
   const menuItems = [
     { title: 'Introduction', url: 'introduction.html' },
-    { title: '5 Construction Process', url: 'introduction.html' },
+    {
+      title: '5 Construction Process', url: '',
+      children: [
+        { title: '1. Preliminary Design', url: '1_preliminary_design.html' },
+        { title: '2. Detailed Design', url: '2_detailed_design.html' },
+        { title: '3. Tendering', url: '3_tendering.html' },
+        { title: '4. Construction', url: '4_construction.html' },
+        { title: '5. Operation & Maintenance', url: '5_operation_maintenance.html' },
+      ]
+    },
     { title: 'BIM', url: 'introduction.html' },
     { title: 'Case Study', url: 'introduction.html' },
     { title: 'Checklist', url: 'introduction.html' },
@@ -40,20 +56,22 @@ function renderOtherHeader() {
   body.insertAdjacentHTML('afterbegin', `
     <nav class="sticky top-0">
       <div class="flex justify-between nav-other-inner absolute w-full px-7.5 h-[100px] items-center">
-        <a class="inline-flex">
-          <img class="w-[240px]" src="./assets/images/icon/home-logo.svg"/>
+        <a class="inline-flex" href="/">
+          <img class="w-[240px]" src="/assets/images/icon/home-logo.svg"/>
         </a>
         <div class="flex items-center justify-center menu gap-[20px] h-full">
           <div class="menu-wrapper h-full">
             ${menuItems.map(i => (
-    `<div class="h-full flex items-center"><a>${i.title}</a></div>`
-  )).join('')}
+            `<div class="h-full flex items-center">
+                        <a class="item" href="/${locale}/${i.url}">${i.title}</a>
+                      </div>
+                      `
+          )).join('')}
           </div>
-
           <a
             onclick="renderBackdropMenu()"
             class="menu_trigger"
-          ><img class="menu" src="./assets/images/icon/menu_trigger.svg" /></a>
+          ><img class="menu" src="/assets/images/icon/menu_trigger.svg" /></a>
           ${renderSizeAndLang()}
         </div>
       </div>
@@ -77,10 +95,10 @@ function renderSizeAndLang() {
 }
 
 function renderBackdropMenu() {
-
+  const locale = getLocale()
   const menuItems = [
     { title: 'Introduction', url: 'introduction.html' },
-    { title: '5 Construction Process', url: 'introduction.html' },
+    { title: '5 Construction Process', url: '5_construction_process.html' },
     { title: 'BIM', url: 'introduction.html' },
     { title: 'Case Study', url: 'introduction.html' },
     { title: 'Checklist', url: 'introduction.html' },
@@ -91,22 +109,22 @@ function renderBackdropMenu() {
     <div class="backdrop-menu">
       ${menuItems.map(i => (
     `
-        <a class="item" href="${i.url}">
+        <a class="item" href="/${locale}/${i.url}">
           <span>${i.title}</span>
-          <div class="img-wrap"><img src="./assets/images/icon/icon-plus.svg" /></div>
+          <div class="img-wrap"><img src="/assets/images/icon/icon-plus.svg" /></div>
         </a>
       `
   )).join('')}
       <div class="flex flex-col gap-7 mt-4">
         <div class="flex items-start justify-center menu gap-[15px]">
           <a href="https://www.facebook.com/housingwellbeinghk" target="_blank">
-            <img class="facebook" src="./assets/images/icon/facebook.svg" />
+            <img class="facebook" src="/assets/images/icon/facebook.svg" />
           </a>
           <a href="https://www.instagram.com/housingwellbeing.hk/" target="_blank">
-            <img class="ig" src="./assets/images/icon/ig.svg" />
+            <img class="ig" src="/assets/images/icon/ig.svg" />
           </a>
           <a href="mailto:hello@housingwellbeing.hk">
-            <img class="email" src="./assets/images/icon/email.svg"  />
+            <img class="email" src="/assets/images/icon/email.svg"  />
           </a>
         </div>
         ${renderSizeAndLang()}
@@ -121,8 +139,8 @@ function renderFooter() {
   body.insertAdjacentHTML('beforeend', `
     <footer class="flex justify-between mx-auto">
       <div class="flex p-5 items-center">
-        <img class="max-h-[56px] mr-5" src="./assets/images/icon/footer_1.svg" />
-        <img class="max-h-[30px]" src="./assets/images/icon/footer_2.svg" />
+        <img class="max-h-[56px] mr-5" src="/assets/images/icon/footer_1.svg" />
+        <img class="max-h-[30px]" src="/assets/images/icon/footer_2.svg" />
       </div>
       <div class="flex items-center text-[#EF4136]">©${new Date().getFullYear()} All Rights Reserved.</div>
     </footer>
