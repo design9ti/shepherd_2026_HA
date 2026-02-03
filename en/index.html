@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HA project</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="./assets/css/main.css">
-  <link rel="stylesheet" href="./assets/css/modal.css">
+  <script src="../assets/js/lib/tailwindcss.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/modal.css">
 </head>
 
 <body class="homepage">
@@ -17,19 +17,19 @@
   </div>
   <div id="banner-3" class="h-[80vh] flex justify-center items-center bg-[#e9d1b9]">
     <div class="max-w-4xl mx-auto grid grid-cols-2 gap-20">
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_1.png" alt="video 1"
+      <img class="w-full h-auto object-cover" src="../assets/images/home/video_1.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_2.png" alt="video 1"
+      <img class="w-full h-auto object-cover" src="../assets/images/home/video_2.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_3.png" alt="video 1"
+      <img class="w-full h-auto object-cover" src="../assets/images/home/video_3.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="./assets/images/home/video_4.png" alt="video 1"
+      <img class="w-full h-auto object-cover" src="../assets/images/home/video_4.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
     </div>
   </div>
 
-  <script src="./assets/js/popup.js"></script>
-  <script src="./assets/js/main.js"></script>
+  <script src="../assets/js/popup.js"></script>
+  <script src="../assets/js/main.js"></script>
   <script>
     function createYouTubeCallback(videoId) {
       if (!videoId) return

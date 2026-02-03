@@ -14,10 +14,6 @@ img {
   height: 100%;
 }
 
-html {
-  /* height: 100%; */
-}
-
 body {
   height: 100%;
   width: 100%;
@@ -151,6 +147,12 @@ nav {
   max-width: 400px;
   margin: auto;
 
+  .menu-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   .item {
     transition: all .2s;
     border: 2px solid var(--color-secondary);
@@ -173,12 +175,37 @@ nav {
 
       img {
         width: 20px;
+        transition: transform 0.3s;
       }
+    }
+
+    &.expandable.expanded .img-wrap img {
+      transform: rotate(45deg);
     }
 
     &:hover {
       background: var(--color-secondary);
       color: #fff;
+    }
+
+    &.submenu-item {
+      height: 45px;
+      margin-left: 30px;
+      font-size: 1.2rem;
+      border-width: 1px;
+    }
+  }
+
+  .submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+
+    &.hidden {
+      max-height: 0;
     }
   }
 
@@ -396,3 +423,4 @@ footer {
     }
   }
 }
+

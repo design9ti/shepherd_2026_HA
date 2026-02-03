@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HA project</title>
   <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="../assets/js/lib/tailwindcss.js"></script>
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/modal.css">
+  <link rel="stylesheet" href="../assets/css/slider.css">
 </head>
 
 <body>
@@ -36,23 +37,15 @@
             <div class="splide__track">
               <ul class="splide__list">
                 <li class="splide__slide">
-                  <div>
-                    <img src="/assets/images/image1.png" alt="Description" class="object-contain">
+                  <div class="slide-image-wrapper">
+                    <img src="/assets/images/image1.png" alt="Description">
                     <span class="caption">Your Caption Here</span>
                   </div>
                 </li>
-                <!-- Slide 2 -->
                 <li class="splide__slide">
-                  <div>
-                    <img src="/assets/images/image2.png" alt="Description" class="object-contain">
-                    <span class="caption">Another Caption</span>
-                  </div>
-                </li>
-                <!-- Slide 2 -->
-                <li class="splide__slide">
-                  <div>
-                    <img src="/assets/images/image2.png" alt="Description" class="object-contain">
-                    <span class="caption">Another Caption</span>
+                  <div class="slide-image-wrapper">
+                    <img src="/assets/images/image2.png" alt="Description">
+                    <span class="caption">Your Caption Here</span>
                   </div>
                 </li>
               </ul>
@@ -77,11 +70,9 @@
   <script src="../assets/js/main.js"></script>
   <script>
     new Splide('.splide', {
-      arrows: false,
-      perPage: 2,
+      perPage: 1,
       padding: '1rem',
       gap: '1rem',
-      heightRatio: 0.3,
     }).mount();
   </script>
 </body>

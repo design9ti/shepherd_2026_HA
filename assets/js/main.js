@@ -61,12 +61,26 @@ function renderOtherHeader() {
         </a>
         <div class="flex items-center justify-center menu gap-[20px] h-full">
           <div class="menu-wrapper h-full">
-            ${menuItems.map(i => (
-            `<div class="h-full flex items-center">
-                        <a class="item" href="/${locale}/${i.url}">${i.title}</a>
-                      </div>
-                      `
-          )).join('')}
+            ${menuItems.map(i => {
+              if (i.children && i.children.length > 0) {
+                return `
+                  <div class="h-full flex items-center relative group">
+                    <span class="item cursor-pointer">${i.title}</span>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md top-full left-0 z-50">
+                      ${i.children.map(child => `
+                        <a class="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap" href="/${locale}/${child.url}">${child.title}</a>
+                      `).join('')}
+                    </div>
+                  </div>
+                `;
+              } else {
+                return `
+                  <div class="h-full flex items-center">
+                    <a class="item" href="/${locale}/${i?.url}">${i.title}</a>
+                  </div>
+                `;
+              }
+            }).join('')}
           </div>
           <a
             onclick="renderBackdropMenu()"
@@ -98,7 +112,16 @@ function renderBackdropMenu() {
   const locale = getLocale()
   const menuItems = [
     { title: 'Introduction', url: 'introduction.html' },
-    { title: '5 Construction Process', url: '5_construction_process.html' },
+    {
+      title: '5 Construction Process', url: '',
+      children: [
+        { title: '1. Preliminary Design', url: '1_preliminary_design.html' },
+        { title: '2. Detailed Design', url: '2_detailed_design.html' },
+        { title: '3. Tendering', url: '3_tendering.html' },
+        { title: '4. Construction', url: '4_construction.html' },
+        { title: '5. Operation & Maintenance', url: '5_operation_maintenance.html' },
+      ]
+    },
     { title: 'BIM', url: 'introduction.html' },
     { title: 'Case Study', url: 'introduction.html' },
     { title: 'Checklist', url: 'introduction.html' },
@@ -107,14 +130,32 @@ function renderBackdropMenu() {
 
   const menu = `
     <div class="backdrop-menu">
-      ${menuItems.map(i => (
-    `
-        <a class="item" href="/${locale}/${i.url}">
-          <span>${i.title}</span>
-          <div class="img-wrap"><img src="/assets/images/icon/icon-plus.svg" /></div>
-        </a>
-      `
-  )).join('')}
+      ${menuItems.map((i, index) => {
+        if (i.children && i.children.length > 0) {
+          return `
+            <div class="menu-item-wrapper">
+              <div class="item expandable" onclick="toggleSubmenu(${index})">
+                <span>${i.title}</span>
+                <div class="img-wrap"><img src="/assets/images/icon/icon-plus.svg" /></div>
+              </div>
+              <div class="submenu hidden" id="submenu-${index}">
+                ${i.children.map(child => `
+                  <a class="item submenu-item" href="/${locale}/${child.url}">
+                    <span>${child.title}</span>
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <a class="item" href="/${locale}/${i.url}">
+              <span>${i.title}</span>
+              <div class="img-wrap"><img src="/assets/images/icon/icon-plus.svg" /></div>
+            </a>
+          `;
+        }
+      }).join('')}
       <div class="flex flex-col gap-7 mt-4">
         <div class="flex items-start justify-center menu gap-[15px]">
           <a href="https://www.facebook.com/housingwellbeinghk" target="_blank">
@@ -145,6 +186,23 @@ function renderFooter() {
       <div class="flex items-center text-[#EF4136]">©${new Date().getFullYear()} All Rights Reserved.</div>
     </footer>
   `)
+}
+
+function toggleSubmenu(index) {
+  const submenu = document.getElementById(`submenu-${index}`)
+  const expandable = submenu.previousElementSibling
+  
+  if (submenu.classList.contains('hidden')) {
+    submenu.classList.remove('hidden')
+    submenu.style.maxHeight = submenu.scrollHeight + 'px'
+    expandable.classList.add('expanded')
+  } else {
+    submenu.style.maxHeight = '0'
+    setTimeout(() => {
+      submenu.classList.add('hidden')
+      expandable.classList.remove('expanded')
+    }, 300)
+  }
 }
 
 function onDocumentLoaded() {
