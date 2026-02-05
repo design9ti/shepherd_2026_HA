@@ -1,0 +1,205 @@
+:root{
+  --color-process1: #ef6522;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out both;
+}
+
+.card {
+  width: 90vw;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media screen and (min-width: 768px) {
+    width: 40vw;
+  }
+  .content-bg{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 2rem 4.5rem 0.5rem 4.5rem;
+    clip-path: polygon(100% 0, 100% 85%, 90% 100%, 0 100%, 0 0);
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      clip-path: polygon(0 0, 100% 0%, 96% 100%, 0% 100%);
+      width: 30%;
+      height: 11px;
+      background: var(--color-process1);
+    }
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #bb202f;
+    padding-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  .btn-wrap {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    button {
+      background: #ef6522;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 12px;
+      padding: 5px 20px;
+      width: fit-content;
+    }
+  }
+}
+
+#card-1,
+#card-2,
+#card-3,
+#card-4,
+#card-5 {
+  opacity: 0;
+}
+
+.title {
+  padding: 20px;
+  background: #fff;
+
+  h1 {
+    padding-left: 80px;
+    line-height: 1;
+
+    &::before {
+      font-size: 100px;
+      position: absolute;
+      left: 10px;
+      top: 5%;
+      padding-right: 30px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 75px;
+      top: 35%;
+      width: 1px;
+      height: 80px;
+      background: #000;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.one {
+    h1 {
+      &::before {
+        content: "1"
+      }
+    }
+
+    svg {
+      fill: #ef6522;
+    }
+  }
+
+  &.two {
+    h1 {
+      &::before {
+        content: "2"
+      }
+    }
+
+    svg {
+      fill: #ef6522;
+    }
+  }
+
+  &.three {
+    h1 {
+      &::before {
+        content: "3"
+      }
+    }
+
+    svg {
+      fill: #ef6522;
+    }
+  }
+
+  &.four {
+    h1 {
+      &::before {
+        content: "4"
+      }
+    }
+
+    svg {
+      fill: #ef6522;
+    }
+  }
+
+  &.five {
+    h1 {
+      &::before {
+        content: "5"
+      }
+    }
+
+    svg {
+      fill: #ef6522;
+    }
+  }
+
+  svg {
+    margin-top: 15px;
+    width: 30%;
+  }
+}
+#banner-2{
+  position: relative;
+}
+#banner-2-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.city{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1921px;
+  height: 1206px;
+}
+
+.home-video{
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -8,165 +8,73 @@
   <script src="../assets/js/lib/tailwindcss.js"></script>
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/modal.css">
-  <style>
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(200px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in-up {
-      animation: fadeInUp 1s ease-out both;
-    }
-
-    .card {
-      opacity: 0;
-      position: absolute;
-      width: 40vw;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      h4 {
-        font-size: 18px;
-        font-weight: bold;
-        color: #bb202f;
-        padding-bottom: 10px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      .btn-wrap {
-        display: flex;
-        justify-content: end;
-        margin-top: 20px;
-
-        button {
-          background: #ef6522;
-          color: #fff;
-          border-radius: 50px;
-          font-size: 12px;
-          padding: 5px 20px;
-          width: fit-content;
-        }
-      }
-    }
-
-    #card-1,
-    #card-2,
-    #card-3,
-    #card-4,
-    #card-5 {
-      opacity: 0;
-    }
-
-    .title {
-      padding: 20px;
-      background: #fff;
-      h1 {
-        padding-left: 80px;
-        line-height: 1;
-        &::before {
-          font-size: 100px;
-          position: absolute;
-          left: 10px;
-          top: 5%;
-          padding-right: 30px;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          left: 75px;
-          top: 35%;
-          width: 1px;
-          height: 80px;
-          background: #000;
-          transform: translateY(-50%);
-        }
-      }
-
-      &.one {
-        h1 {
-          &::before {
-            content: "1"
-          }
-        }
-
-        svg {
-          fill: #ef6522;
-        }
-      }
-
-      &.two {
-        h1 {
-          &::before {
-            content: "2"
-          }
-        }
-
-        svg {
-          fill: #ef6522;
-        }
-      }
-
-      &.three {
-        h1 {
-          &::before {
-            content: "3"
-          }
-        }
-
-        svg {
-          fill: #ef6522;
-        }
-      }
-
-      &.four {
-        h1 {
-          &::before {
-            content: "4"
-          }
-        }
-
-        svg {
-          fill: #ef6522;
-        }
-      }
-
-      &.five {
-        h1 {
-          &::before {
-            content: "5"
-          }
-        }
-
-        svg {
-          fill: #ef6522;
-        }
-      }
-
-      svg {
-        margin-top: 15px;
-        width: 30%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/home_animation.css">
 </head>
 
 <body class="homepage">
+  <!-- banner section 1 -->
   <div id="banner-1" class="home-banner">
+    <div class="city">
+      <img id="banner-1-img" src="/assets/images/home/home_banner1.png" />
+    </div>
+    <div class="card absolute" id="card-1-1">
+      <div class="flex flex-col bg-white py-7 px-10 content-bg">
+        <h4>PLANNING</h4>
+        <p>Operation and Maintenance represent the final stage in the Design for Safety process, focusing on ensuring a
+          safe and efficient working environment throughout the lifecycle of system. This stage involves thoroughly
+          understanding the maintenance procedures and fostering effective communication and collaboration with the
+          maintenance team. By doing so, it aims to optimise safety measures, thereby minimising the risk of injury to
+          maintenance personnel. Additionally, this phase emphasises the importance of identifying any operational or
+          maintenance issues and implementing appropriate modifications or improvements to address these problems
+          promptly. Through continuous monitoring and proactive adjustments, Operation and Maintenance play a critical
+          role in sustaining a safe workplace and enhancing overall system reliability.
+        </p>
+        <div class="btn-wrap">
+          <button onclick="redirectTo('introduction.html')">Learn more</button>
+        </div>
+      </div>
+    </div>
+    <div class="card absolute" id="card-1-2">
+      <div class="flex flex-col bg-white py-7 px-10 content-bg">
+        <h4>DESIGN</h4>
+        <p>Operation and Maintenance represent the final stage in the Design for Safety process, focusing on ensuring a
+          safe and efficient working environment throughout the lifecycle of system. This stage involves thoroughly
+          understanding the maintenance procedures and fostering effective communication and collaboration with the
+          maintenance team. By doing so, it aims to optimise safety measures, thereby minimising the risk of injury to
+          maintenance personnel. Additionally, this phase emphasises the importance of identifying any operational or
+          maintenance issues and implementing appropriate modifications or improvements to address these problems
+          promptly. Through continuous monitoring and proactive adjustments, Operation and Maintenance play a critical
+          role in sustaining a safe workplace and enhancing overall system reliability.
+        </p>
+        <div class="btn-wrap">
+          <button onclick="redirectTo('introduction.html')">Learn more</button>
+        </div>
+      </div>
+    </div>
+    <div class="card absolute" id="card-1-3">
+      <div class="flex flex-col bg-white py-7 px-10 content-bg">
+        <h4>SAFETY</h4>
+        <p>Operation and Maintenance represent the final stage in the Design for Safety process, focusing on ensuring a
+          safe and efficient working environment throughout the lifecycle of system. This stage involves thoroughly
+          understanding the maintenance procedures and fostering effective communication and collaboration with the
+          maintenance team. By doing so, it aims to optimise safety measures, thereby minimising the risk of injury to
+          maintenance personnel. Additionally, this phase emphasises the importance of identifying any operational or
+          maintenance issues and implementing appropriate modifications or improvements to address these problems
+          promptly. Through continuous monitoring and proactive adjustments, Operation and Maintenance play a critical
+          role in sustaining a safe workplace and enhancing overall system reliability.
+        </p>
+        <div class="btn-wrap">
+          <button onclick="redirectTo('introduction.html')">Learn more</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <div id="banner-2" class="home-banner relative">
-    <img id="banner-2-img" src="/assets/images/home/home_banner2.png" class="absolute top-0 left-0 w-full h-full" />
+
+  <!-- banner section 2 -->
+  <div id="banner-2" class="home-banner">
+    <div class="city">
+      <img id="banner-2-img" src="/assets/images/home/home_banner2.png" />
+    </div>
     <div class="card absolute" id="card-1">
       <div class="flex flex-col mb-8 relative title one">
         <h1 class="text-3xl pb-4 text-[#ef6522] font-bold">PRELIMINARY<br />DESIGN</h1>
@@ -176,7 +84,7 @@
           <polygon class="cls-1" points="0 20.17 179.92 20.17 195.38 0 0 0 0 20.17" />
         </svg>
       </div>
-      <div class="flex flex-col bg-white py-7 px-10">
+      <div class="content-bg">
         <h4>Preliminary Design </h4>
         <p>The Preliminary Design stage forms the critical foundation for ensuring safety in planning and design,
           setting the trajectory for all subsequent project phases. At this stage, the scope and objectives of the
@@ -191,7 +99,7 @@
           only functional and sustainable, but also safe and harmonious for all users.
         </p>
         <div class="btn-wrap">
-          <button>Learn more</button>
+          <button onclick="redirectTo('1_preliminary_design.html')">Learn more</button>
         </div>
       </div>
     </div>
@@ -204,7 +112,7 @@
           <polygon class="cls-1" points="0 20.17 179.92 20.17 195.38 0 0 0 0 20.17" />
         </svg>
       </div>
-      <div class="flex flex-col bg-white py-7 px-10">
+      <div class="flex flex-col bg-white py-7 px-10 content-bg">
         <h4>Detailed Design</h4>
         <p>Detailed Design is a critical stage in the planning and design process that focuses on refining and
           optimising the project to ensure safety throughout its lifecycle. At this stage, designers modify the
@@ -224,7 +132,7 @@
           and housing we develop, reflecting a commitment to safeguarding health and well-being at work and beyond.
         </p>
         <div class="btn-wrap">
-          <button>Learn more</button>
+          <button onclick="redirectTo('2_detailed_design.html')">Learn more</button>
         </div>
       </div>
     </div>
@@ -237,7 +145,7 @@
           <polygon class="cls-1" points="0 20.17 179.92 20.17 195.38 0 0 0 0 20.17" />
         </svg>
       </div>
-      <div class="flex flex-col bg-white py-7 px-10">
+      <div class="flex flex-col bg-white py-7 px-10 content-bg">
         <h4>Tendering</h4>
         <p>In the tendering stage of a construction project, integrating design for safety is crucial to ensure that
           safety risks are effectively managed from the outset. This stage requires the provision of clear,
@@ -251,7 +159,7 @@
           continuous improvement in safety practices, aligning with the ultimate goal of zero incidents on site.
         </p>
         <div class="btn-wrap">
-          <button>Learn more</button>
+          <button onclick="redirectTo('3_tendering.html')">Learn more</button>
         </div>
       </div>
     </div>
@@ -264,7 +172,7 @@
           <polygon class="cls-1" points="0 20.17 179.92 20.17 195.38 0 0 0 0 20.17" />
         </svg>
       </div>
-      <div class="flex flex-col bg-white py-7 px-10">
+      <div class="flex flex-col bg-white py-7 px-10 content-bg">
         <h4>Construction</h4>
         <p>During the construction stage, ensuring safety is paramount and requires meticulous planning, management, and
           coordination to protect all workers on site from the outset. This phase involves proactive identification and
@@ -279,7 +187,7 @@
           construction process that safeguards workers’ health and well-being throughout the project lifecycle.
         </p>
         <div class="btn-wrap">
-          <button>Learn more</button>
+          <button onclick="redirectTo('4_construction.html')">Learn more</button>
         </div>
       </div>
     </div>
@@ -292,7 +200,7 @@
           <polygon class="cls-1" points="0 20.17 179.92 20.17 195.38 0 0 0 0 20.17" />
         </svg>
       </div>
-      <div class="flex flex-col bg-white py-7 px-10">
+      <div class="flex flex-col bg-white py-7 px-10 content-bg">
         <h4>Operation and Maintenance</h4>
         <p>Operation and Maintenance represent the final stage in the Design for Safety process, focusing on ensuring a
           safe and efficient working environment throughout the lifecycle of system. This stage involves thoroughly
@@ -304,20 +212,20 @@
           role in sustaining a safe workplace and enhancing overall system reliability.
         </p>
         <div class="btn-wrap">
-          <button>Learn more</button>
+          <button onclick="redirectTo('5_operation_maintenance.html')">Learn more</button>
         </div>
       </div>
     </div>
   </div>
   <div id="banner-3" class="h-[80vh] flex justify-center items-center bg-[#e9d1b9]">
     <div class="max-w-4xl mx-auto grid grid-cols-2 gap-20">
-      <img class="w-full h-auto object-cover" src="../assets/images/home/video_1.png" alt="video 1"
+      <img class="w-full h-auto object-cover home-video" src="../assets/images/home/video_1.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="../assets/images/home/video_2.png" alt="video 1"
+      <img class="w-full h-auto object-cover home-video" src="../assets/images/home/video_2.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="../assets/images/home/video_3.png" alt="video 1"
+      <img class="w-full h-auto object-cover home-video" src="../assets/images/home/video_3.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
-      <img class="w-full h-auto object-cover" src="../assets/images/home/video_4.png" alt="video 1"
+      <img class="w-full h-auto object-cover home-video" src="../assets/images/home/video_4.png" alt="video 1"
         onclick="openBackdrop(createYouTubeCallback('e7UTFNFL_GY'))" />
     </div>
   </div>
@@ -343,103 +251,15 @@
       container.appendChild(iframe)
       return container
     }
+    function redirectTo(url) {
+      const locale = getLocale()
+      window.location.href = `/${locale}/${url}`
+    }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const banner3 = document.querySelector('#banner-3')
-      const banner3Images = banner3 ? banner3.querySelectorAll('img') : []
-      if (banner3 && banner3Images.length) {
-        banner3Images.forEach((img) => img.classList.remove('fade-in-up'))
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              banner3Images.forEach((img) => img.classList.add('fade-in-up'))
-            } else {
-              banner3Images.forEach((img) => img.classList.remove('fade-in-up'))
-            }
-          })
-        }, { threshold: 0.2 })
-
-        observer.observe(banner3)
-      }
-
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-      const tl = gsap.timeline({
-        defaults: { ease: "none" },
-        scrollTrigger: {
-          trigger: "#banner-2",
-          start: "top top",
-          end: "+=400%",
-          pin: true,
-          scrub: 1.5,
-          anticipatePin: 1,
-          markers: true // debug usage
-        }
-      })
-      // step 1
-      tl.to("#banner-2-img", {
-        scale: 1.4,
-        x: 500,
-        y: 820,
-        duration: 3,
-        onEnter: () => tl.scrollTrigger.spacer.style.backgroundColor = "#edd7c3"
-      }, "+=1.5")
-      tl.to("#card-1", { autoAlpha: 1, duration: 2.2, ease: "power1.out" }, "+=0.4")
-      tl.to("#card-1", { autoAlpha: 0, duration: 1.8, ease: "power1.in" }, "+=0.8")
-      // step 2
-      tl.to("#banner-2-img", {
-        scale: 1.4,
-        x: 700,
-        y: 200,
-        duration: 4,
-        onEnter: () => tl.scrollTrigger.spacer.style.backgroundColor = "#edd7c3"
-      }, "+=1.2")
-      tl.to("#card-2", { autoAlpha: 1, duration: 2.2, ease: "power1.out" }, "+=0.4")
-      tl.to("#card-2", { autoAlpha: 0, duration: 1.8, ease: "power1.in" }, "+=0.8")
-      // step 3
-      tl.to("#banner-2-img", {
-        scale: 1.4,
-        x: -200,
-        y: 380,
-        duration: 4,
-        onEnter: () => tl.scrollTrigger.spacer.style.backgroundColor = "#edd7c3"
-      }, "+=1.2")
-      tl.to("#card-3", { autoAlpha: 1, duration: 2.2, ease: "power1.out" }, "+=0.4")
-      tl.to("#card-3", { autoAlpha: 0, duration: 1.8, ease: "power1.in" }, "+=0.8")
-      // step 4
-      tl.to("#banner-2-img", {
-        scale: 1.4,
-        x: -450,
-        y: 950,
-        duration: 4,
-        onEnter: () => tl.scrollTrigger.spacer.style.backgroundColor = "#edd7c3"
-      }, "+=1.2")
-      tl.to("#card-4", { autoAlpha: 1, duration: 2.2, ease: "power1.out" }, "+=0.4")
-      tl.to("#card-4", { autoAlpha: 0, duration: 1.8, ease: "power1.in" }, "+=0.8")
-      // step 5
-      tl.to("#banner-2-img", {
-        scale: 1.4,
-        x: -300,
-        y: 0,
-        duration: 4,
-        onEnter: () => tl.scrollTrigger.spacer.style.backgroundColor = "#edd7c3"
-      }, "+=1.2")
-      tl.to("#card-5", { autoAlpha: 1, duration: 2.2, ease: "power1.out" }, "+=0.4")
-      tl.to("#card-5", { autoAlpha: 0, duration: 1.8, ease: "power1.in" }, "+=0.8")
-      // end
-      tl.to("#banner-2-img", {
-        x: 0,
-        y: 0,
-        scale: 1,
-        duration: 3
-      }, "+=1")
-    })
-
-  </script>
+  <script src="../assets/js/home_animation.js"></script>
 </body>
 
 </html>

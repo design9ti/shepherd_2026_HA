@@ -24,14 +24,6 @@ body {
     background-size: cover;
     background-position: center center;
   }
-
-  #banner-1 {
-    background-image: url('/assets/images/home/home_banner1.jpg');
-  }
-
-  #banner-2 {
-    /* background-image: url('/assets/images/home/home_banner2.png'); */
-  }
 }
 
 .acc-font-size {
